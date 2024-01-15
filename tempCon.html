@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>temperature Converter</title>
+    <style>
+        body{
+            font-size: 30px;
+            width: 100%;
+            height: 100vh;
+            background:linear-gradient(yellow,orange);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container{
+            background: rgb(96, 223, 234);
+            background-repeat: no-repeat;
+            
+            padding: 25px;
+            border-radius: 15px;
+            color: rgb(10, 65, 124);
+        }
+        .i1{
+            line-height:25px;
+            width: 300px;
+            border-radius: 8px;
+            border-color: rgb(19, 19, 19);
+        }
+        .btn{
+            border-radius: 8px;
+            height: 40px;
+            width: 100px;
+            font-size: 20px;
+            background-color: rgb(229, 54, 27);
+            cursor: pointer;
+            opacity: 0.9;
+        }
+        input:hover{
+            background-color: lightgray;
+        }
+        .btn:hover{
+            opacity: 1;
+            background-color: green;
+        }
+       #option{
+        height: 30px;
+        font-size: large;
+       }
+     
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="head">
+            <h1>Temperature Converter</h1>
+        </div>
+        <div class="temp">
+            <table>
+                <tr>
+                    <td>
+                        Temperature in degrees
+                        <br>
+                        <input type="text" id="disp" class="i1">
+                    </td>
+                    <td>Type
+                        <br>
+                       <select name="type" value="Farehnit" class="i1" id="option">
+                        <option value="Fahrenheit">Fahrenheit</option>
+                        <option value="Kelvin">Kelvin</option>
+                        <option value="Celsius">Celsius</option>
+                        <option value="Rankine">Rankine</option>
+                        <option value="Reaumur">Reaumur</option>
+                        <option value="Triple point of water" id="6">Triple point of water</option>
+                    </select>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                       <br>
+                        <div id="res">Result : </div>
+                    </td>
+                        <td>
+                            <br>
+                        <input type="submit" value="Convert" class="btn" onclick="converter()">
+                    </td>
+                </tr>
+            </table>
+             </div>
+    </div>
+</body>
+<script>
+function converter() {
+            var degree,op,res;
+            degree = parseInt(document.getElementById("disp").value);
+            op = document.getElementById("option").value;
+
+            switch(op){
+                case 'Fahrenheit': res = (degree * 1.8) + 32;
+                    break;
+                case 'Kelvin': res = degree + 273.15;
+                    break;
+                case 'Celsius': res = degree;
+                    break;
+                case 'Rankine':res  = (degree * 1.8)+ 491.67;
+                    break;
+                case 'Reaumur': res = degree *(4/5);
+                    break;
+                case 'Triple point of water': res = degree-0.01;
+                    break;
+            }
+           
+            document.getElementById("res").innerHTML = "Result : " +res ;
+            
+        }
+</script>
+</html>
